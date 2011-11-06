@@ -1,6 +1,21 @@
 = movie-renamer
 
-Description goes here.
+This is a new project that hopes to accomplish the goal of
+cleaning up movie file names from a variety of initial 
+formats and ending up with a consistent easy-to-read format.
+Also, directory structure should remain in tact, unless
+there aren't subtitle files to worry about, and there is
+only one part to the movie.
+
+E.g.
+"movie of the year/moty-a.avi" --> 
+    "Movie of the Year[2001]/Movie of the Year [2001](part1).avi"
+"movie of the year/moty-b.avi" --> 
+    "Movie of the Year[2001]/Movie of the Year [2001](part2).avi"
+"Movie.of.the.Year.-.2001/moty.avi" --> 
+    "Movie of the Year [2001].avi"
+"Movie of the Year [2001].avi" --> 
+    <UNCHANGED>
 
 == Contributing to movie-renamer
  
