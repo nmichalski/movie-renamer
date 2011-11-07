@@ -1,23 +1,21 @@
-STARTING_DIRECTORY = Dir.pwd
-
 When /^I choose the movie directory "(.*)"$/ do |dir|
-  Dir.chdir(STARTING_DIRECTORY)
-  Dir.chdir(dir)
-  Dir.getwd[-dir.length, dir.length].should == dir
-end
-
-When /^I choose an empty directory like "(.*)"$/ do |dir|
-  Dir.chdir(STARTING_DIRECTORY)
-  Dir.chdir(dir)
-  Dir.getwd[-dir.length, dir.length].should == dir
-  Dir.entries(".").should == [".", ".."]
+  @movie_renamer = MovieRenamer.new
+  @movie_renamer.navigate_to(dir)
+  @movie_renamer.current_directory[-dir.length, dir.length].should == dir
 end
 
 Then /^there should be a listing for "(.*)"$/ do |movie|
-  Dir.entries(".").should include movie
+  @movie_renamer.entries.should include movie
+end
+
+When /^I choose an empty directory like "(.*)"$/ do |dir|
+  @movie_renamer = MovieRenamer.new
+  @movie_renamer.navigate_to(dir)
+  @movie_renamer.current_directory[-dir.length, dir.length].should == dir
+  @movie_renamer.entries.should == [".", ".."]
 end
 
 Then /^there should be a message saying "(.*)"$/ do |msg|
-  #TODO: make MovieRenamer class
-  #MovieRenamer.error_message.should == msg
+  @movie_renamer.check_for_empty_dir
+  @movie_renamer.error_message.should == msg
 end

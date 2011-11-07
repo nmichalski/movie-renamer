@@ -13,4 +13,6 @@ group :development do
   gem "cucumber", ">= 1.1.1"
   gem "capybara", ">= 1.1.1"
   gem "rspec", ">= 2.7.0"
+  gem "require_all", ">= 1.2.0"
+  gem "term-ansicolor", ">= 1.0.7" 
 end
