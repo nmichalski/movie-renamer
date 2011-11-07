@@ -48,3 +48,7 @@ pkg
 #*.rbc
 
 Gemfile.lock
+
+features/*.swp
+features/step_definitions/*.swp
+lib/*.swp

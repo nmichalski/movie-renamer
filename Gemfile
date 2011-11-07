@@ -15,4 +15,5 @@ group :development do
   gem "rspec", ">= 2.7.0"
   gem "require_all", ">= 1.2.0"
   gem "term-ansicolor", ">= 1.0.7" 
+  gem "movie_searcher", "~> 0.1.6"
 end
